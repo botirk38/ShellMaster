@@ -4,6 +4,7 @@
 #include "include/PwdCommand.h"
 #include "include/TypeCommand.h"
 #include "include/Utils.h"
+#include "include/CdCommand.h"
 
 CommandHandler::CommandHandler() {
   // Register commands
@@ -11,6 +12,7 @@ CommandHandler::CommandHandler() {
   commands["exit"] = std::make_unique<ExitCommand>();
   commands["type"] = std::make_unique<TypeCommand>(commands);
   commands["pwd"] = std::make_unique<PwdCommand>();
+  commands["cd"] = std::make_unique<CdCommand>();
 }
 
 void CommandHandler::handleCommand(const std::string &input) {
