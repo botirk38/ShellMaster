@@ -20,8 +20,6 @@ public:
 
 private:
     const std::unordered_map<std::string, std::unique_ptr<Command>>& commands;
-    bool isExecutable(const std::string& path);
-    std::string findExecutableInPath(const std::string& commandName);
 
 };
 
