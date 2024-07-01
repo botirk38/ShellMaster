@@ -1,17 +1,16 @@
 #include "include/CommandHandler.h"
 #include "include/EchoCommand.h"
 #include "include/ExitCommand.h"
+#include "include/PwdCommand.h"
 #include "include/TypeCommand.h"
 #include "include/Utils.h"
-#include <iostream>
-#include <sys/wait.h>
-#include <unistd.h>
 
 CommandHandler::CommandHandler() {
   // Register commands
   commands["echo"] = std::make_unique<EchoCommand>();
   commands["exit"] = std::make_unique<ExitCommand>();
   commands["type"] = std::make_unique<TypeCommand>(commands);
+  commands["pwd"] = std::make_unique<PwdCommand>();
 }
 
 void CommandHandler::handleCommand(const std::string &input) {
@@ -60,4 +59,3 @@ void CommandHandler::executeExternalCommand(
     std::cerr << "Failed to fork" << std::endl;
   }
 }
-
